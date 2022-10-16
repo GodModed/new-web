@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+
+:root {
+  --background-theme: #070707;
+  --color-theme: #ff4800;
+  --default-text-color: #FCF7F8;
+}
+
+body {
+  background: linear-gradient(90deg, var(--background-theme) 21px, transparent 1%) center, linear-gradient(var(--background-theme) 21px, transparent 1%) center, var(--color-theme);
+  background-size: 22px 22px;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: var(--background-theme);
+  border-radius: 15px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0px 0px 100px -28px var(--color-theme);
+  color: var(--default-text-color);
+}
+
+main span {
+  color: var(--color-theme);
+}
+
+main h1 {
+  font-size: 5em;
+  margin-bottom: 1rem;
+}
+
+container {
+  display: flex;
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 100%;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+}
+
+container > h3 {
+  transition: all 0.5s ease-in-out;
+  margin-top: -0.125rem;
+}
+
+.hide {
+  opacity: 0;
+}
+
+github-projects {
+  display: block;
+  position: absolute;
+  margin-top: 0.5rem;
+  position: absolute;
+  overflow-x: scroll;
+  width: 100%;
+  background-color: var(--background-theme);
+  border-radius: 15px;
+}
+
+buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
+  z-index: 1;
+}
+
+button {
+  margin: 7.5px;
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  z-index: 999;
+}
+
+button:hover {
+  background-color: black;
+  -webkit-backdrop-filter: brightness(1.2);
+  backdrop-filter: brightness(1.2);
+  box-shadow: 0px 15px 20px var(--color-theme);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+@media (max-width: 1850px) {
+  main {
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    width: 100%;
+    height: 100%;
+  }
+
+  modalbox {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 550px) {
+  main h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 325px) {
+  main h1 {
+    font-size: 2em;
+  }
+
+  main h3 {
+    font-size: 1em;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 6px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-theme);
+  filter: brightness(0.5);
+  border-radius: 10px;
+  width: 3px;
+  height: 6px;
+}
+
+.open {
+  transform: scaleY(1);
+}
+
+/* setup for modal */
+modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scaleY(0);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+modalbox {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  background-color: var(--background-theme);
+  border-radius: 15px;
+  color: var(--default-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: scroll;
+  z-index: 1001;
+}
