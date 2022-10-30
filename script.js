@@ -56,3 +56,21 @@ closeBtn.forEach(btn => btn.addEventListener("click", () => {
 socialModalTrigger.addEventListener("click", () => {
     socialModal.classList.add("open");
 });
+
+// color picker
+
+if (localStorage.getItem("color-theme")) {
+    document.documentElement.style.setProperty("--color-theme", localStorage.getItem("color-theme"));
+}
+
+const colorPicker = new iro.ColorPicker("colorpicker", {
+    width: 350,
+    color: getComputedStyle(document.documentElement).getPropertyValue("--color-theme").replace(/ /g, ""),
+});
+
+colorPicker.on(['color:init', 'color:change'], function(color) {
+    // log the current color as a HEX string
+    document.documentElement.style.setProperty("--color-theme", color.hexString);
+    localStorage.setItem("color-theme", color.hexString);
+});
+  

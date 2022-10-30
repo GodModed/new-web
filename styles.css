@@ -26,6 +26,7 @@ main {
   font-family: 'Montserrat', sans-serif;
   box-shadow: 0px 0px 100px -28px var(--color-theme);
   color: var(--default-text-color);
+  overflow-y: scroll;
 }
 
 main span {
@@ -114,12 +115,6 @@ button:hover {
   transform: translateY(-7px);
 }
 
-@media (max-width: 1850px) {
-  main {
-    overflow-y: scroll;
-  }
-}
-
 @media (max-width: 1200px) {
   main {
     width: 100%;
@@ -174,7 +169,6 @@ modal {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,4 +190,53 @@ modalbox {
   flex-direction: column;
   overflow-y: scroll;
   z-index: 1001;
+}
+
+div > a {
+  text-decoration: none !important;
+  color: var(--color-theme) !important;
+}
+
+colorpicker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 1000000000;
+}
+
+.block {
+  display: block;
+  transform: scaleY(1);
+}
+
+cont {
+  display: none;
+}
+
+.colorcontainer:has(input:checked) ~ cont {
+  display: block;
+}
+
+.colorcontainer:has(input:checked) ~ cont > colorpicker {
+  transform: translate(-50%, -50%) scaleY(1);
+}
+
+.colorcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+
+.colorcontainer {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 1000000000;
+  background-color: var(--color-theme);
 }
