@@ -152,7 +152,8 @@ button:hover {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-theme);
-  filter: brightness(0.5);
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
   border-radius: 10px;
   width: 3px;
   height: 6px;
