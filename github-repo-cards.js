@@ -71,6 +71,8 @@ const fetchCards = (user, githubRepoCard) => {
             popular.forEach(pop => {
                 githubRepoCard.innerHTML += newCard(pop.full_name, pop.html_url, pop.description, githubRepoCard, pop.language, pop.stargazers_count, pop.forks)
             })
+            // emit event
+            window.dispatchEvent(new Event('loaded-cards'));
         })
 }
 
