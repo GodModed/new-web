@@ -107,7 +107,8 @@ function step() {
         card.remove();
         section.appendChild(card.cloneNode(true));
         // reset x without jittery effect
-        x = 0;
+        x = x - section.children[nextCard].offsetWidth;
+        console.log(x);
         section.style.transform = `translateX(-${x}px)`;
     }
 }
@@ -129,7 +130,7 @@ function isHidden(el) {
     // get width of el
     const width = el.offsetWidth;
     // get x pos of el
-    const x = el.getBoundingClientRect().x;
+    const x = el.getBoundingClientRect().x + 40;
 
     // check if x pos + width is outside of the main element
     if (x + width < main.getBoundingClientRect().x) {
